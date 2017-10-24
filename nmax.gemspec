@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Nmax::VERSION
   spec.authors       = ["Dmitry"]
   spec.email         = ["sofakingworld@gmail.com"]
-
+  
   spec.summary       = "Gem integrates with CLI and outputs N max integers from input stream"
   spec.description   = "It's a part of qualification test in FunBox company"
   spec.homepage      = "https://github.com/SofaKing18/nmax"
@@ -26,8 +26,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = ['nmax']
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.16.a"

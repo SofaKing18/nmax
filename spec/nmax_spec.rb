@@ -4,6 +4,20 @@ RSpec.describe Nmax do
 		expect(Nmax::VERSION).not_to be nil
 	end
 	
+	context "Initialization" do
+		it "STDReader.new(5) - OK" do 
+			expect(Nmax::STDReader.new(5)).to be_an(Nmax::STDReader)
+		end	
+		
+		it "STDReader.new(-1) - FAIL" do 
+			expect{Nmax::STDReader.new(-1)}.to raise_error('nmax N # N must be greater than zero')
+		end	
+		
+		it "STDReader.new('hello') - FAIL" do 
+			expect{Nmax::STDReader.new('hello')}.to raise_error('nmax N # N must be integer')
+		end	
+	end 
+
 	context "Regexp" do
 		let(:nmaxSTRReader) { Nmax::STDReader.new(5)}
 
@@ -15,6 +29,7 @@ RSpec.describe Nmax do
 			expect(nmaxSTRReader.regular_with_min_digits(5)).to eq(/(\d{1,1000}$)|(\d{5,1000})/)
 		end
 	end
+
 	context 'String "1-2-3-4-5"' do 
 		let(:nmaxSTRReader) { Nmax::STDReader.new(5)}
 
@@ -34,7 +49,7 @@ RSpec.describe Nmax do
 		end
 	end
 
-	context 'String "1-2-3-4-5 & 0-51a"' do 
+	context 'Strings "1-2-3-4-5" & "0-51a"' do 
 		
 		before(:all) do
 			@nmaxSTRReader = Nmax::STDReader.new(3)

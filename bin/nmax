@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'nmax'
+
+obj = Nmax::STDReader.new(ARGV[0].to_i)
+obj.read_data # stdin
+obj.max_numbers.reverse.each  do |num|
+    puts num
+end

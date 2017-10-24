@@ -2,6 +2,9 @@ require 'nmax/version'
 require 'set'
 
 module Nmax
+	InvalidArgumentValue = Exception.new("nmax N # N must be greater than zero")
+	InvalidArgumentType = Exception.new("nmax N # N must be integer")
+	
 	class STDReader
 		attr_accessor   :batch_size,		# read data size
 						:return_count, 		# return count
@@ -15,12 +18,16 @@ module Nmax
 		end
 	
 		def initialize(n)
+			raise InvalidArgumentValue if n < 1
+
 			@batch_size = 1024 * 1024 * 10 # 10Mb
 			@return_count = n
 			@min_size = 1
 			@max_size = 1000
 			@tail_digits = ''
 			@getted_numbers = SortedSet.new([])
+		rescue ArgumentError
+			raise InvalidArgumentType
 		end
 
 		def max_numbers
@@ -45,7 +52,7 @@ module Nmax
 			end
 		end
 
-		def read_data(data = nil)
+		def read_data
 			while (data_string = STDIN.read(@batch_size)) != nil
 				get_numbers(data_string)
 			end
