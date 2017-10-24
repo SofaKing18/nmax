@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/SofaKing18/nmax.svg?branch=master)](https://travis-ci.org/SofaKing18/nmax)
 
+=======
+
 # Nmax
 This gem returns N maximum integers from input string or stdin
 number is a sequence from 1 to 1000 digits
