@@ -1,9 +1,8 @@
+[![Build Status](https://travis-ci.org/SofaKing18/nmax.svg?branch=master)](https://travis-ci.org/SofaKing18/nmax)
+
 # Nmax
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nmax`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+This gem returns N maximum integers from input string or stdin
+number is a sequence from 1 to 1000 digits
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -21,18 +20,23 @@ Or install it yourself as:
     $ gem install nmax
 
 ## Usage
+```ruby
+require 'nmax'
 
-TODO: Write usage instructions here
+obj = Nmax::STDReader.new(3) # return 3 max numbers
+obj.get_numbers('a33b42c31f-3-4')
+obj.max_numbers # => [31, 33, 42]
+```
 
-## Development
+or 
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```bash
+cat Example_file.txt | nmax 30  
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nmax.
+Bug reports and pull requests are welcome on GitHub at https://github.com/SofaKing18/nmax.
 
 ## License
 
