@@ -3,8 +3,10 @@
 =======
 
 # Nmax
-This gem returns N maximum integers from input string or stdin
-number is a sequence from 1 to 1000 digits
+This gem returns N maximum integers from input string or stdin  
+
+number is a sequence from 1 to 1000 digits  
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,6 +24,9 @@ Or install it yourself as:
     $ gem install nmax
 
 ## Usage
+
+ruby
+
 ```ruby
 require 'nmax'
 
@@ -30,7 +35,7 @@ obj.get_numbers('a33b42c31f-3-4')
 obj.max_numbers # => [31, 33, 42]
 ```
 
-or 
+or in console
 
 ```bash
 cat Example_file.txt | nmax 30  
